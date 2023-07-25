@@ -70,6 +70,12 @@ const Login = () => {
       }
     };
 
+    const handleKeyDown = (event) => {
+      if (event.key === "Enter") {
+        submitHandler();
+      }
+    };
+
     return (
         <VStack spacing="10px">
           <FormControl id="email" isRequired>
@@ -89,6 +95,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 type={show ? "text" : "password"}
                 placeholder="Enter password"
+                onKeyDown={handleKeyDown}
               />
               <InputRightElement width="4.5rem">
                 <Button h="1.75rem" size="sm" onClick={handleClick}>

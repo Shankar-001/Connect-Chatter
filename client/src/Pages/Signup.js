@@ -2,7 +2,6 @@ import { VStack } from '@chakra-ui/react';
 import { Button } from "@chakra-ui/react";
 import { FormControl, FormLabel } from "@chakra-ui/react";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
-// import { useToast } from "@chakra-ui/toast"
 import { useToast } from "@chakra-ui/react";
 
 import axios from "axios";
@@ -10,7 +9,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-  const [show, setShow] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [confirmpassword, setConfirmpassword] = useState();
@@ -20,7 +20,8 @@ const Signup = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
-  const handleClick = () => setShow(!show);
+  const handleClickPassword = () => setShowPassword(!showPassword);
+  const handleClickConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
 
   const postDetails = (pics) => {
     setPicLoading(true);
@@ -153,13 +154,13 @@ const Signup = () => {
         <FormLabel>Password</FormLabel>
         <InputGroup size="md">
           <Input
-            type={show ? 'text' : 'password'}
+            type={showPassword ? 'text' : 'password'}
             placeholder="Enter Password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? 'Hide' : 'Show'}
+            <Button h="1.75rem" size="sm" onClick={handleClickPassword}>
+              {showPassword ? 'Hide' : 'Show'}
             </Button>
           </InputRightElement>
         </InputGroup>
@@ -168,13 +169,13 @@ const Signup = () => {
         <FormLabel>Confirm Password</FormLabel>
         <InputGroup size="md">
           <Input
-            type={show ? 'text' : 'password'}
+            type={showConfirmPassword ? 'text' : 'password'}
             placeholder="Confirm password"
             onChange={(e) => setConfirmpassword(e.target.value)}
           />
           <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? 'Hide' : 'Show'}
+            <Button h="1.75rem" size="sm" onClick={handleClickConfirmPassword}>
+              {showConfirmPassword ? 'Hide' : 'Show'}
             </Button>
           </InputRightElement>
         </InputGroup>
