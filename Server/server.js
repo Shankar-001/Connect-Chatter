@@ -22,6 +22,17 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
+const path = require("path");
+__dirname = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/client/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+}
+
+
 const server = app.listen(PORT, console.log(`Server is running on ${PORT}`));
 
 const io = require('socket.io')(server, {
