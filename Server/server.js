@@ -18,7 +18,6 @@ app.use('/api/chat', chatRoutes);
 app.use('/api/message', messageRoutes);
 
 const path = require('path');
-
 const __dirname1 = path.resolve();
 
 if (process.env.NODE_ENV === 'production') {
