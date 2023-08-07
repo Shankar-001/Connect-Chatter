@@ -142,7 +142,7 @@ const Signup = () => {
           onChange={(e) => setName(e.target.value)}
         />
       </FormControl>
-      <FormControl id="email" isRequired>
+      <FormControl id="signup_email" isRequired>
         <FormLabel>Email Address</FormLabel>
         <Input
           type="email"
@@ -150,7 +150,7 @@ const Signup = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </FormControl>
-      <FormControl id="password" isRequired>
+      <FormControl id="set_password" isRequired>
         <FormLabel>Password</FormLabel>
         <InputGroup size="md">
           <Input
@@ -165,7 +165,7 @@ const Signup = () => {
           </InputRightElement>
         </InputGroup>
       </FormControl>
-      <FormControl id="password" isRequired>
+      <FormControl id="confirm_password" isRequired>
         <FormLabel>Confirm Password</FormLabel>
         <InputGroup size="md">
           <Input
