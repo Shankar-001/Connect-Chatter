@@ -91,6 +91,12 @@ const SideDrawer = () => {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   const accessChat = async (userId) => {
     console.log(userId);
 
@@ -143,7 +149,7 @@ const SideDrawer = () => {
           Connect-Chatter
         </Text>
         <div>
-          <Menu>
+          {/* <Menu>
             <MenuButton p={1}>
               <NotificationBadge
                 count={notification.length}
@@ -167,7 +173,7 @@ const SideDrawer = () => {
                 </MenuItem>
               ))}
             </MenuList>
-          </Menu>
+          </Menu> */}
           <Menu>
             <MenuButton as={Button} bg="white" rightIcon={<ChevronDownIcon />}>
               <Avatar
@@ -199,6 +205,7 @@ const SideDrawer = () => {
                 mr={2}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
+                onKeyDown={handleKeyDown}
               />
               <Button onClick={handleSearch}>Go</Button>
             </Box>
